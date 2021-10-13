@@ -3,7 +3,7 @@
     <!-- Header & Content -->
     <div class="flex flex-col">
       <!-- Picture -->
-        <!-- <img src="./assets/pic.png" class="absolute rounded-full shadow-lg h-1/5"> -->
+      <!-- <img src="https://milhane.me/me.png/" class="absolute rounded-full shadow-lg h-1/5"> -->
       <!-- Header -->
       <div class="p-8 green-shadow bg-green-light mb-8"></div>
       <!-- Content -->
@@ -11,7 +11,7 @@
         <div class="flex flex-col w-11/12 max-w-screen-lg">
           <!-- Title -->
           <div class="flex w-full justify-center">
-            <h1 class="text-4xl font-bold mb-8">{{ fullName() }} 😎</h1>
+            <h1 class="text-4xl font-bold mb-8">{{ fullName() }}</h1>
           </div>
           <!-- Grid -->
           <div class="grid grid-cols-1 md:grid-cols-2 gap-4 xl:gap-8">
@@ -22,7 +22,7 @@
               <Title content="Formations"></Title>
             </div>
             <div class="flex flex-col">
-              <Title content="Languages & Technos"></Title>
+              <Title content="Me contacter"></Title>
             </div>
             <div class="flex flex-col">
               <Title content="Projets"></Title>
@@ -43,31 +43,30 @@
                 ></RepositorySkeleton>
               </div>
             </div>
-            <!-- <div class="flex flex-col col-span-2">
-              <Title content="Me contacter"></Title>
-            </div> -->
           </div>
         </div>
       </div>
     </div>
     <!-- Footer -->
     <div class="p-4 green-shadow bg-green-light flex flex-row justify-between">
-      <!-- <div class="flex flex-row justify-between">
+      <div class="flex flex-row justify-between">
         <a
           v-for="(link, i) in links"
           :key="i"
           :href="link.to"
-          class="mr-2 flex items-center"
+          :title="link.title"
+          target="blank"
+          class="mr-4 flex items-center"
         >
-          <i :class="link.icon + ' '"></i>
+          <i :class="link.icon + ' fa-lg'"></i>
         </a>
-      </div> -->
-      <h1>Developed and Designed with <i class="far fa-heart"></i> by <a href="https://github.com/chmilhane" target="blank">{{ firstName }}</a>.</h1>
+      </div>
+      <h1>Développé et designé avec <i class="far fa-heart"></i> par <a href="https://github.com/chmilhane" target="blank">{{ firstName }}</a>.</h1>
     </div>
   </div>
 </template>
 
-<style scoped>
+<style scopd>
   .green-shadow {
     -webkit-box-shadow: 0px 0px 0px 10px var(--color-green-dark); 
     box-shadow: 0px 0px 0px 5px var(--color-green-dark);
@@ -89,13 +88,23 @@
         links: [
           {
             icon: 'fab fa-github',
-            alt: 'GitHub',
+            title: 'GitHub',
             to: 'https://github.com/chmilhane'
           },
           {
+            icon: 'fab fa-figma',
+            title: 'Projet Figma',
+            to: 'https://www.figma.com/file/awUcaBNjrwCoW32aXRuZyk/😎?node-id=0%3A1'
+          },
+          {
             icon: 'fas fa-file-pdf',
-            alt: 'PDF',
-            to: '/assets/resume.pdf'
+            title: 'Format PDF',
+            to: 'https://milhane.me/resume.pdf'
+          },
+          {
+            icon: 'fas fa-envelope-open-text',
+            title: 'Lettre de motivation',
+            to: 'https://milhane.me/motivationletter.pdf'
           }
         ],
         pinnedRepositories: []
@@ -132,7 +141,7 @@
         }).replace(/&amp;/g, '&');
       },
       fullName() {
-        return this.lastName + ' ' + this.firstName;
+        return this.firstName + ' ' + this.lastName;
       }
     }
   }
