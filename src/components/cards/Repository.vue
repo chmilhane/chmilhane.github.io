@@ -22,7 +22,7 @@
             <h3>{{ repository.stars || 0 }}</h3>
           </div>
         </div>
-        <a v-if="repository.website" class="p-2 rounded-md bg-green-light shadow transition duration-500 ease-in-out hover:shadow-md" :href="repository.website" target="blank">Demo</a>
+        <!-- <a v-if="repository.website" class="px-4 py-2 rounded-md bg-green-light transition duration-500 ease-in-out hover:shadow-md" :href="repository.website" target="blank">Démo</a> -->
       </div>
     </a>
   </div>
